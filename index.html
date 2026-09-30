@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mira — Modern beauty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="announcement">Complimentary shipping on orders over ₦50 <span>✦</span> A little luxury, every day</div>
+  <header>
+    <button class="menu-button" aria-label="Open menu" aria-controls="primaryNavigation" aria-expanded="false">☰</button>
+    <a class="brand" href="#top">M<span>I</span>RA</a>
+    <nav id="primaryNavigation">
+      <a href="#shop">Shop</a><a href="#ritual">Rituals</a><a href="#story">Our story</a>
+    </nav>
+    <div class="header-tools">
+      <button class="search-button" aria-label="Search">⌕</button>
+      <button class="bag-button" aria-label="View bag">Bag <span id="bagCount">0</span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">The art of becoming</p>
+        <h1>Your light,<br><em>amplified.</em></h1>
+        <p class="intro">Thoughtful colour for every face, every feeling, every kind of beautiful.</p>
+        <a class="button dark" href="#shop">Find your glow <span>→</span></a>
+      </div>
+      <div class="hero-image-wrap">
+        <div class="sun"></div>
+        <div class="hero-image"></div>
+        <p class="vertical-note">Formulated for the feeling</p>
+      </div>
+      <aside class="hero-aside"><span>01</span><span class="line"></span><span>Vegan · Cruelty-free</span></aside>
+    </section>
+
+    <section class="marquee" aria-label="Brand values"><span>Clean formulas</span><b>✦</b><span>High-performance
+        colour</span><b>✦</b><span>Made for real life</span><b>✦</b><span>Clean formulas</span></section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The essentials</p>
+          <h2>Made to be<br><em>lived in.</em></h2>
+        </div><button class="text-link" id="viewAll">View all products <span>→</span></button>
+      </div>
+      <div class="filters" role="tablist"><button class="active" data-filter="all">All</button><button
+          data-filter="face">Face</button><button data-filter="lips">Lips</button><button
+          data-filter="eyes">Eyes</button></div>
+      <div class="products" id="products"></div>
+    </section>
+
+    <section class="editorial" id="ritual">
+      <div class="editorial-image">
+        <div class="scribble">a little<br>goes a long way</div>
+      </div>
+      <div class="editorial-copy">
+        <p class="eyebrow">The five-minute face</p>
+        <h2>Colour that<br><em>moves with you.</em></h2>
+        <p>Skin-first, instinctive, and impossible to overdo. Meet the effortless edit for mornings that become
+          evenings.</p><a class="button light" href="#shop">Shop the ritual <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="story" id="story">
+      <p class="eyebrow">Mira is beauty without the performance</p>
+      <h2>For your most<br><em>unfiltered self.</em></h2>
+      <p>We make intuitive makeup with considered ingredients and luminous payoff — because the best beauty routine is
+        the one you’ll actually want to keep.</p><a class="text-link" href="#shop">Discover our philosophy
+        <span>→</span></a>
+    </section>
+  </main>
+  <footer><a class="brand" href="#top">M<span>I</span>RA</a><span>© 2024 Mira Beauty</span>
+    <div><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Contact</a></div>
+  </footer>
+
+  <aside class="cart" id="cart" aria-hidden="true">
+    <div class="cart-head">
+      <h3>Your bag <span id="cartQuantity">0</span></h3><button id="closeCart" aria-label="Close bag">×</button>
+    </div>
+    <div id="cartItems" class="cart-items">
+      <p class="empty">Your bag is waiting for something lovely.</p>
+    </div>
+    <div class="cart-bottom">
+      <div class="subtotal"><span>Subtotal</span><strong id="subtotal">₦0.00</strong></div><small>Shipping and taxes
+        calculated at checkout.</small><button id="checkoutButton" class="button dark full">Checkout
+        <span>→</span></button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <section class="checkout" id="checkout" aria-hidden="true">
+    <div class="checkout-panel"><button id="closeCheckout" class="close-checkout">×</button>
+      <p class="eyebrow">Secure checkout</p>
+      <h2>Almost yours.</h2>
+      <div class="checkout-grid">
+        <div><label>Email<input id="checkoutEmail" type="email" autocomplete="email"
+              placeholder="you@email.com"></label><label>Full name<input id="checkoutName" type="text"
+              autocomplete="name" placeholder="Your name"></label>
+          <p class="secure" style="text-align:left;margin-top:26px">Your payment details are collected securely by
+            Flutterwave.</p>
+        </div>
+        <div class="payment-summary">
+          <p class="eyebrow">Order summary</p>
+          <div id="checkoutItems"></div>
+          <div class="total"><span>Total</span><strong id="checkoutTotal">₦0.00</strong></div>
+        </div>
+      </div><button id="payButton" class="button dark full" type="button">Pay with Flutterwave <span>→</span></button>
+      <p class="secure">🔒 Payments are encrypted and secure</p>
+    </div>
+  </section>
+  <div class="toast" id="toast">Added to your bag</div>
+  <script src="script.js"></script>
+</body>
+
+</html>
+
