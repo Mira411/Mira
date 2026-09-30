@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verifying payment — Mira</title>
+  <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fdfbf7;color:#29221e;font-family:Arial,sans-serif}.card{max-width:460px;padding:40px;text-align:center}h1{font-family:Georgia,serif;font-size:44px;margin:0 0 16px}p{color:#6a5c53;line-height:1.6}a{display:inline-block;margin-top:16px;color:#29221e}</style>
+</head>
+<body>
+  <main class="card">
+    <h1>Checking your payment…</h1>
+    <p id="message">Please wait while Mira securely verifies your Flutterwave payment.</p>
+    <a href="/">Return to shop</a>
+  </main>
+  <script>
+    const query = new URLSearchParams(location.search);
+    fetch('/api/verify-payment', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ transactionId: query.get('transaction_id'), txRef: query.get('tx_ref') }) })
+      .then(async response => ({ ok: response.ok, body: await response.json() }))
+      .then(({ ok, body }) => { document.querySelector('h1').textContent = ok && body.verified ? 'Payment confirmed.' : 'We could not confirm payment.'; document.querySelector('#message').textContent = body.error || (ok ? 'Thank you for your order.' : 'Please contact support if you need help.'); })
+      .catch(() => { document.querySelector('h1').textContent = 'Verification unavailable.'; document.querySelector('#message').textContent = 'Please contact support with your payment reference.'; });
+  </script>
+</body>
+</html>
+
